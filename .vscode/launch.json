@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Full Project",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "ng serve",
+            "cwd": "${workspaceFolder}/frontend",
+            "preLaunchTask": "Start Backend",
+            "postDebugTask": "Stop Backend",
+            "serverReadyAction": {
+                "pattern": "Local:\\s+(https?://\\S+)",
+                "uriFormat": "%s",
+                "action": "openExternally"
+            }
+        },
+        {
+            "name": "frontend",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "ng serve",
+            "cwd": "${workspaceFolder}/frontend",
+            "preLaunchTask": "Start Backend",
+            "postDebugTask": "Stop Backend",
+            "serverReadyAction": {
+                "pattern": "Local:\\s+(https?://\\S+)",
+                "uriFormat": "%s",
+                "action": "openExternally"
+            }
+        },
+        {
+            "name": "backend",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "dotnet run --launch-profile http",
+            "cwd": "${workspaceFolder}/backend"
+        }
+    ]
+}
