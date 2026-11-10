@@ -1,0 +1,139 @@
+<div class="overlay" (click)="closePopup()"></div>
+
+<div class="popup">
+
+    <h2>Add Player</h2>
+
+    <form #playerForm="ngForm" (ngSubmit)="register(playerForm)">
+
+        <div class="split">
+
+            <input 
+                type="text"
+                placeholder="Full Name"
+                [(ngModel)]="user.stdName"
+                name="fullName"
+                required
+            />
+        
+            <input 
+                type="text"
+                placeholder="Father Name"
+                [(ngModel)]="user.stdFName"
+                name="email"
+                required
+            />
+        
+        </div>
+
+        <div class="split">
+
+            <input 
+                type="text"
+                placeholder="Age"
+                [(ngModel)]="user.stdAge"
+                name="password"
+                required
+            />
+
+            <input 
+                type="text"
+                placeholder="Gender"
+                [(ngModel)]="user.stdGender"
+                name="email"
+                required
+            />
+
+        </div>
+
+        <div class="split">
+
+            <input 
+                type="text"
+                placeholder="Contact"
+                [(ngModel)]="user.stdContact"
+                name="email"
+                required
+            />
+
+            <input 
+                type="text"
+                placeholder="Belt"
+                [(ngModel)]="user.stdBelt"
+                name="email"
+                required
+            />
+
+        </div>
+
+        <div class="split">
+
+            <input 
+                type="text"
+                placeholder="History (opt)"
+                [(ngModel)]="user.stdHistory"
+                name="email"
+                /* required */
+            />
+
+            <input 
+                type="text"
+                placeholder="Fee"
+                [(ngModel)]="user.stdFee"
+                name="email"
+                required
+            />
+
+        </div>
+
+
+        <textarea 
+            type="text"
+            placeholder="Reason (opt)"
+            [(ngModel)]="user.stdReason"
+            name="email"
+            /* required */
+        ></textarea>
+
+        
+
+        <!-- <select 
+            [(ngModel)]="user.role"
+            name="role"
+            required>
+
+            <option value="">
+                Select Role
+            </option>
+
+            <option value="Admin">
+                Admin
+            </option>
+
+            <option value="Employee">
+                Employee
+            </option>
+
+            <option value="Hr">
+                Hr
+            </option>
+
+        </select> -->
+
+
+        <button type="submit" class="register">
+            Register
+        </button>
+
+        <button 
+            type="button"
+            class="cancel"
+            (click)="closePopup()">
+            Cancel
+        </button>
+
+    </form>
+
+    <p class="footer">Create a Taekwondo Player</p>
+
+</div>

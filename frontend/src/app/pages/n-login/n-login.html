@@ -1,0 +1,159 @@
+<div class="login-container">
+  <!-- Outer Wrapper to simulate the clean-edged desktop mockup -->
+  <div class="login-window">
+    
+    <!-- LEFT SIDE: Sleek, White Workspace (Sign In Form) -->
+    <section class="form-section">
+      <div class="form-wrapper">
+        <!-- Brand Logo -->
+        <div class="brand-logo">
+          <img src="images/login.jpg" alt="Softronic Logo">
+        </div>
+
+        <!-- Form Headers -->
+        <div class="form-header">
+          <!-- <h2>Sign In</h2> -->
+          <p class="subtitle">Login to continue to your workspace</p>
+        </div>
+
+        <!-- Input Form -->
+        <div class="form-container">
+
+          <!-- User ID / Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-wrapper">
+              <i class="fa-regular fa-user input-icon"></i>
+              <input
+                [(ngModel)]="n_loginData.email"
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Enter User ID">
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input
+                id="password"
+                [(ngModel)]="n_loginData.password"
+                type="password"
+                name="password"
+                placeholder="••••••••">
+            </div>
+          </div>
+
+          <!-- Options Row -->
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input [(ngModel)]="n_loginData.rememberMe" type="checkbox">
+              <span>Keep me signed in</span>
+            </label>
+            <!-- <a href="#" class="forgot-link">Forgot Password?</a> -->
+          </div>
+
+          <!-- Error Message Display -->
+           <!-- *ngIf="errMsg" -->
+            @if(errMsg){
+              <div class="errormsg" >
+                {{ errMsg }}
+              </div>
+            }
+
+          <!-- Login Button -->
+          <button class="submit-btn" 
+            (click)="login()"
+          >
+            <span>Login</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- System & Copyright Info -->
+        <footer class="form-footer">
+          <span class="version">V-2.00.2026</span>
+          <!-- <span class="copyright">Copyright © 2026 </span> -->
+          <span class="copyright">Made by UZAIR</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- RIGHT SIDE: Fluid Dark/Blur Mesh Gradient with Softronic Brand Statement -->
+    <section class="banner-section">
+      <!-- Navbar Overlay replicating Reference UI -->
+      <!-- <nav class="banner-nav">
+        <a href="https://softronicsys.com/" target="_blank">About</a>
+        <a href="#">Solutions</a>
+        <a href="mailto:info@softronic.com">Contact</a>
+      </nav> -->
+
+      <!-- Central Hero Copy -->
+      <div class="banner-content">
+        <span class="badge">Since 2019</span>
+        <h1 class="headline">Welcome to <br><span>Zulfi International Taekwondo Academy</span></h1>
+        <p class="description">
+          Develop discipline, respect, and self-defense skills through Taekwondo. Every kick brings 
+          you closer to excellence.
+        </p>
+
+        <!-- Dynamic Product Segment Cards -->
+        <div class="segment-grid">
+          <div class="segment-card">
+            <div class="icon-box"><i class="fa-solid fa-medal"></i></div>
+            <div class="card-text">
+              <h4>Discipline</h4>
+              <p>Focus • Respect • Growth</p>
+            </div>
+          </div>
+          <div class="segment-card">
+            <div class="icon-box"> <i class="fa-solid fa-dumbbell"></i></div>
+            <div class="card-text">
+              <h4>Strength</h4>
+              <p>Power • Endurance • Confidence</p>
+            </div>
+          </div>
+          <div class="segment-card">
+            <div class="icon-box"><i class="fa-solid fa-person-running"></i></div>
+            <div class="card-text">
+              <h4>Training</h4>
+              <p>Practice • Progress • Excellence</p>
+            </div>
+          </div>
+          <div class="segment-card">
+            <div class="icon-box"><i class="fa-solid fa-trophy"></i></div>
+            <div class="card-text">
+              <h4>Achievement</h4>
+              <p>Goals • Success • Victory</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Navigation Links -->
+        <!-- <div class="social-wrapper">
+          <div class="social-links">
+            <a href="https://softronicsys.com/" target="_blank" class="social-btn">
+              <i class="fa-solid fa-globe"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-btn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="social-btn">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-btn">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="mailto:info@softronic.com" class="social-btn">
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+  </div>
+</div>

@@ -1,0 +1,316 @@
+
+
+// =====================================================
+// REGISTRAR THEME — tokens
+// If these fonts aren't already loaded globally, add to
+// index.html or angular.json styles:
+//   Source Serif 4, Inter, IBM Plex Mono (Google Fonts)
+// =====================================================
+
+:host {
+    --paper: #EFE9DC;
+    --paper-deep: #E4DCC9;
+    --ink: #22303F;
+    --rust: #A8412E;
+    --sage: #7C8A73;
+    --hair: #C9C0AA;
+    --text-muted: #5B5546;
+
+    display: block;
+    // background: var(--paper);
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--ink);
+}
+
+.reports-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 0rem 0rem;
+}
+
+
+// ============================= //
+// MASTHEAD
+// ============================= //
+
+.masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: .75rem;
+    border-bottom: 2.5px solid var(--ink);
+    padding-bottom: 1.1rem;
+    margin-bottom: .4rem;
+}
+
+.masthead-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+// .eyebrow {
+//     font-family: 'IBM Plex Mono', monospace;
+//     font-size: .68rem;
+//     letter-spacing: .16em;
+//     text-transform: uppercase;
+//     color: var(--sage);
+//     margin-bottom: .4rem;
+// }
+
+.masthead h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -.01em;
+}
+
+.masthead-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: .82rem;
+    color: var(--text-muted);
+    margin: 0;
+    text-align: right;
+    max-width: 180px;
+    line-height: 1.4;
+}
+
+.ref-line {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: #8A8168;
+    border-bottom: 1px solid var(--hair);
+    padding: .6rem 0 1.75rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+// ============================= //
+// REPORT CARD (ledger row)
+// ============================= //
+// p-card renders its own wrapper (.p-card) — strip its
+// default panel look so cards read as ledger rows instead
+// of boxed cards, then hang a hairline rule under each.
+
+::ng-deep {
+
+    .report-card {
+        .p-card {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .p-card-body,
+        .p-card-content {
+            padding: 0;
+        }
+    }
+
+    .report-card + .report-card {
+        margin-top: 0;
+    }
+}
+
+.report-card {
+    display: block;
+    border-bottom: 1px solid var(--hair);
+    padding: 2rem 0.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 2px 2px 2px 2px rgb(147, 128, 128);
+    background: linear-gradient(to right,  white, rgb(225, 223, 223)) ;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover{
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.25);
+
+
+    }
+}
+
+.report-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1.75rem;
+}
+
+@media (max-width: 560px) {
+    .report-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .report-tag {
+        transform: none !important;
+    }
+}
+
+.report-tag {
+    align-self: start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 82px;
+    height: 82px;
+    border: 1.5px solid var(--rust);
+    border-radius: 50%;
+    transform: rotate(-8deg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    line-height: 1.25;
+    padding: .3rem;
+}
+
+.report-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.report-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.report-desc {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-muted);
+    font-size: .92rem;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 440px;
+}
+
+
+// ============================= //
+// FORM FIELDS
+// ============================= //
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    max-width: 280px;
+
+    p-select{
+       height: 2rem;
+       display: flex;
+       align-items: center; 
+       padding: 0 .5rem;
+    }
+
+}
+
+.field label {
+    font-family: 'Inter', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #6B6350;
+    font-weight: 600;
+}
+
+.date-fields {
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+
+// ============================= //
+// PRIMENG FIELD OVERRIDES
+// underline style, no boxed inputs, ink/rust accents
+// NOTE: internal PrimeNG class names vary by version/theme
+// preset (Aura shown here) — inspect your rendered DOM and
+// adjust selectors below if they don't apply.
+// ============================= //
+
+::ng-deep {
+
+    .report-select,
+    p-datepicker {
+        width: 100%;
+    }
+
+    .report-select .p-select,
+    .p-datepicker .p-datepicker-input,
+    p-select .p-select {
+        background: transparent;
+        border: none;
+        border-bottom: 1.5px solid var(--ink);
+        border-radius: 0;
+        padding: .5rem .1rem;
+        font-family: 'Inter', sans-serif;
+        font-size: .95rem;
+        color: var(--ink);
+        box-shadow: none;
+    }
+
+    .report-select .p-select:not(.p-disabled).p-focus,
+    .p-datepicker .p-datepicker-input:focus {
+        border-bottom-color: var(--rust);
+        box-shadow: none;
+    }
+
+    .report-select .p-select-label {
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--ink);
+    }
+
+    .report-select .p-select-dropdown {
+        color: var(--sage);
+    }
+
+    // Buttons — outlined ink, fills on hover
+    .p-button {
+        background: transparent;
+        border: 1.5px solid var(--ink);
+        color: var(--ink);
+        border-radius: 2rem;
+        padding: .62rem 1.2rem;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: .82rem;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        box-shadow: none;
+        transition: background .15s ease, color .15s ease;
+
+        &:hover {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+
+        .p-button-icon {
+            font-size: .8rem;
+        }
+    }
+}
+
+
+// ============================= //
+// BUTTONS
+// ============================= //
+
+// .button-group {
+//     display: flex;
+//     gap: .75rem;
+//     flex-wrap: wrap;
+// }

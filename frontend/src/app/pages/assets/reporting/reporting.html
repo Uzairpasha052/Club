@@ -1,0 +1,602 @@
+<!-- <div class="reports-container">
+
+    <div class="page-header">
+        <h2>Reports</h2>
+        <p>Generate and download system reports.</p>
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- PLAYER RECORD REPORT -->
+    <!-- ================================= 
+
+    <p-card header="Player Record Report">
+
+        <div class="report-content">
+
+            <div class="field">
+
+                <label>
+                    Player Status
+                </label>
+
+                <p-select
+                    [options]="statusOptions"
+                    [(ngModel)]="selectedStatus"
+                    optionLabel="label"
+                    optionValue="value"
+                    placeholder="Select Status"
+                    Class="report-select">
+                </p-select>
+
+            </div>
+
+
+            <div class="button-group">
+
+                <p-button
+                    label="View Report"
+                    icon="pi pi-eye"
+                    (onClick)="generatePlayerRecordReport()">
+                </p-button>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+
+    <!-- ================================= -->
+    <!-- REASON REPORT -->
+    <!-- ================================= 
+
+    <p-card
+        header="Player Reason Report"
+        Class="report-card">
+
+        <div class="report-content">
+
+            <p class="description">
+                Generate a report containing player information
+                and their recorded reasons.
+            </p>
+
+            <div class="button-group">
+
+                <p-button
+                    label="View Report"
+                    icon="pi pi-eye"
+                    (onClick)="generatePlayerReasonReport()">
+                </p-button>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+
+    <!-- ================================= -->
+    <!-- ATTENDANCE REPORT -->
+    <!-- ================================= 
+
+    <p-card
+        header="Attendance Report"
+        styleClass="report-card">
+
+        <div class="report-content">
+
+            <p class="description">
+                Select a date range to generate the attendance
+                report.
+            </p>
+
+
+            <div class="date-fields">
+
+                <!-- START DATE 
+
+                <div class="field">
+
+                    <label for="startDate">
+                        Start Date
+                    </label>
+
+                    <p-datepicker
+                        inputId="startDate"
+                        [(ngModel)]="startDate"
+                        dateFormat="dd-mm-yy"
+                        placeholder="Select start date"
+                        [showIcon]="true"
+                        [showButtonBar]="true"
+                        appendTo="body">
+                    </p-datepicker>
+
+                </div>
+
+
+                <!-- END DATE 
+
+                <div class="field">
+
+                    <label for="endDate">
+                        End Date
+                    </label>
+
+                    <p-datepicker
+                        inputId="endDate"
+                        [(ngModel)]="endDate"
+                        dateFormat="dd-mm-yy"
+                        placeholder="Select end date"
+                        [showIcon]="true"
+                        [showButtonBar]="true"
+                        appendTo="body">
+                    </p-datepicker>
+
+                </div>
+
+            </div>
+
+
+            <div class="button-group">
+
+                <p-button
+                    label="View Report"
+                    icon="pi pi-eye"
+                    (onClick)="generatePlayerAttendanceReport()">
+                </p-button>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+</div> -->
+
+
+<p-toast position="top-right"></p-toast>
+
+<div class="reports-container">
+
+    <!-- ================================= -->
+    <!-- MASTHEAD -->
+    <!-- ================================= -->
+
+    <div class="masthead">
+        <div class="masthead-titles">
+            <!-- <span class="eyebrow">Records Office</span> -->
+            <h2>Reports</h2>
+        </div>
+        <p class="masthead-sub">Generate and download system reports.</p>
+    </div>
+
+    <div class="ref-line">
+        <!-- <span>Season Records</span>
+        <span>Filed by Administration</span> -->
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- PLAYER RECORD REPORT -->
+    <!-- ================================= -->
+
+    <p-card Class="report-card">
+
+        <div class="report-row">
+
+            <div class="report-tag">Roster<br>File</div>
+
+            <div class="report-main">
+
+                <h3 class="report-title">Player Record Report</h3>
+
+                <div class="field">
+
+                    <label>
+                        Player Status
+                    </label>
+
+                    <p-select
+                        [options]="statusOptions"
+                        [(ngModel)]="selectedStatus"
+                        optionLabel="label"
+                        optionValue="value"
+                        placeholder="Select Status"
+                        Class="report-select">
+                    </p-select>
+
+                </div>
+
+                <div class="button-group">
+
+                    <p-button
+                        label="View Report"
+                        icon="pi pi-eye"
+                        severity="secondary"
+                        (onClick)="generatePlayerRecordReport()">
+                    </p-button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+
+    <!-- ================================= -->
+    <!-- REASON REPORT -->
+    <!-- ================================= -->
+
+    <p-card Class="report-card">
+
+        <div class="report-row">
+
+            <div class="report-tag">Incident<br>File</div>
+
+            <div class="report-main">
+
+                <h3 class="report-title">Player Reason Report</h3>
+
+                <p class="report-desc">
+                    Generate a report containing player information
+                    and their recorded reasons.
+                </p>
+
+                <div class="button-group">
+
+                    <p-button
+                        label="View Report"
+                        icon="pi pi-eye"
+                        severity="secondary"
+                        (onClick)="generatePlayerReasonReport()">
+                    </p-button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+
+    <!-- ================================= -->
+    <!-- ATTENDANCE REPORT -->
+    <!-- ================================= -->
+
+    <p-card Class="report-card">
+
+        <div class="report-row">
+
+            <div class="report-tag">Attend.<br>Log</div>
+
+            <div class="report-main">
+
+                <h3 class="report-title">Attendance Report</h3>
+
+                <p class="report-desc">
+                    Select a date range to generate the attendance
+                    report.
+                </p>
+
+                <div class="date-fields">
+
+                    <!-- START DATE -->
+
+                    <div class="field">
+
+                        <label for="startDate">
+                            Start Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="startDate"
+                            [(ngModel)]="startDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select start date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+
+                    <!-- END DATE -->
+
+                    <div class="field">
+
+                        <label for="endDate">
+                            End Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="endDate"
+                            [(ngModel)]="endDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select end date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <p-button
+                        label="View Report"
+                        icon="pi pi-eye"
+                        (onClick)="generatePlayerAttendanceReport()">
+                    </p-button>
+
+                    <!-- <p-button
+                        label="Download PDF"
+                        icon="pi pi-download"
+                        severity="secondary"
+                        (onClick)="downloadAttendanceReport()">
+                    </p-button> -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+
+    <!-- ================================= -->
+    <!-- CASH-IN REPORT -->
+    <!-- ================================= -->
+
+    <p-card Class="report-card">
+
+        <div class="report-row">
+
+            <div class="report-tag">Cash.<br>Log</div>
+
+            <div class="report-main">
+
+                <h3 class="report-title">Cash-In Report</h3>
+
+                <p class="report-desc">
+                    Select a date range to generate the Cash In
+                    report.
+                </p>
+
+                <div class="date-fields">
+
+                    <!-- START DATE -->
+
+                    <div class="field">
+
+                        <label for="cashInStartDate">
+                            Start Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="cashInStartDate"
+                            [(ngModel)]="cashInStartDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select start date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+
+                    <!-- END DATE -->
+
+                    <div class="field">
+
+                        <label for="cashInEndDate">
+                            End Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="cashInEndDate"
+                            [(ngModel)]="cashInEndDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select end date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <p-button
+                        label="View Report"
+                        icon="pi pi-eye"
+                        severity="secondary"
+                        (onClick)="generateCashInReport()">
+                    </p-button>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+
+
+    <!-- ================================= -->
+    <!-- CASH-OUT REPORT -->
+    <!-- ================================= -->
+
+    <p-card Class="report-card">
+
+        <div class="report-row">
+
+            <div class="report-tag">Cash.<br>Log</div>
+
+            <div class="report-main">
+
+                <h3 class="report-title">Cash-Out Report</h3>
+
+                <p class="report-desc">
+                    Select a date range to generate the Cash Out
+                    report.
+                </p>
+
+                <div class="date-fields">
+
+                    <!-- START DATE -->
+
+                    <div class="field">
+
+                        <label for="cashOutStartDate">
+                            Start Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="cashOutStartDate"
+                            [(ngModel)]="cashOutStartDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select start date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+
+                    <!-- END DATE -->
+
+                    <div class="field">
+
+                        <label for="cashOutEndDate">
+                            End Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="cashOutEndDate"
+                            [(ngModel)]="cashOutEndDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select end date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <p-button
+                        label="View Report"
+                        icon="pi pi-eye"
+                        severity="secondary"
+                        (onClick)="generateCashOutReport()">
+                    </p-button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+    <!-- ================================= -->
+    <!-- CASH-Flow REPORT -->
+    <!-- ================================= -->
+
+    <p-card Class="report-card">
+
+        <div class="report-row">
+
+            <div class="report-tag">Cash.<br>Log</div>
+
+            <div class="report-main">
+
+                <h3 class="report-title">Cash-Flow Report</h3>
+
+                <p class="report-desc">
+                    Select a date range to generate the Cash Out
+                    report.
+                </p>
+
+                <div class="date-fields">
+
+                    <!-- START DATE -->
+
+                    <div class="field">
+
+                        <label for="cashFlowStartDate">
+                            Start Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="cashFlowStartDate"
+                            [(ngModel)]="cashFlowStartDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select start date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+
+                    <!-- END DATE -->
+
+                    <div class="field">
+
+                        <label for="cashFlowEndDate">
+                            End Date
+                        </label>
+
+                        <p-datepicker
+                            inputId="cashFlowEndDate"
+                            [(ngModel)]="cashFlowEndDate"
+                            dateFormat="dd-mm-yy"
+                            placeholder="Select end date"
+                            [showIcon]="true"
+                            [showButtonBar]="true"
+                            appendTo="body">
+                        </p-datepicker>
+
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <p-button
+                        label="View Report"
+                        icon="pi pi-eye"
+                        severity="secondary"
+                        (onClick)="generateCashFlowReport()">
+                    </p-button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </p-card>
+
+    
+</div>

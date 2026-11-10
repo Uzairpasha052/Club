@@ -1,0 +1,483 @@
+
+.main_container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hero_section{
+    position: absolute;
+    // background-color: rgb(214, 216, 216);
+    // padding-bottom: 10px;
+    width: 80%;
+
+    p{
+        color: white;
+    }
+}
+
+.logo_section{
+    display: flex;
+    align-items: center;
+    background-color: white ;
+    width: 100%;
+    height:80px;
+    padding: 0 10px;
+}
+
+.hero_img_1{
+
+    img{
+        height: 55px;
+        width: 80px;
+    }
+}
+
+.hero_img_2{
+    width: 950px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: end;
+
+    img{
+        height: 75px;
+    }
+}
+
+.hero_img_3{
+
+    img{
+        height: 80px;
+        width: 200px;
+    }
+}
+
+.add-user-container{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+
+    .add-user-btn{
+        width: 80%;
+        font-size: 25px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        cursor: pointer;
+        border-radius: 12px;       
+        border: none;
+        background: transparent;
+        transition: .5s;
+        // padding: 5px 0;
+
+        &:hover{
+            color: whitesmoke;
+            background:linear-gradient(to right, #6a96bf, #2c3e4f, #6a96bf) ;
+        }
+
+        .register_logo{
+            // align-items: center;
+            height: 22px;
+            text-align: center;
+        }
+    }
+}
+
+.user_TData{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    background: #fff;
+    border-radius: 15px;
+    margin-top: 20px;
+
+    span{
+        font-size: small;
+    }
+
+    h2{
+        text-align: center;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+
+    .attendance-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 12px;
+    }
+
+    .attendance-toolbar h2 {
+        margin-bottom: 0;
+    }
+
+    .month-picker {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .month-picker label {
+        font-weight: 600;
+        color: #374151;
+        white-space: nowrap;
+    }
+
+    table{
+
+        text-align: center;
+        th{
+            background-color: rgb(207, 204, 200);
+        }
+    }
+}
+
+.user_pdata{
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border: 1px solid rgb(171, 171, 171);
+    border-radius: 15px;
+
+    // margin-top: 20px;
+    // align-items: center;
+    // justify-content: center;
+
+    h2{
+        text-align: center;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+    span{   
+        font-size: small;
+    }
+
+    // p-table{
+    //     border: 1px solid;
+    // }
+}
+
+.action-btns{
+    display: flex;
+    gap: 8px;
+}
+
+:host ::ng-deep .user_TData .p-datatable .p-datatable-thead > tr > th {
+    background: #f8fafc;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 10px;
+}
+
+:host ::ng-deep .user_TData .p-datatable .p-datatable-tbody > tr > td {
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+:host ::ng-deep .user_TData .p-datatable .p-datatable-tbody > tr {
+    height: 36px;
+}
+
+:host ::ng-deep .user_TData .p-datatable .p-datatable-tbody > tr:hover {
+    background: #f8fafc;
+}
+
+:host ::ng-deep .user_TData .p-datatable .p-datatable-header,
+:host ::ng-deep .user_TData .p-datatable .p-datatable-caption {
+    padding: 8px 12px;
+}
+
+:host ::ng-deep .user_TData .p-datatable .p-button {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.edit-user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.field {
+    width: 100%;
+}
+
+
+
+// For Layout
+.admin-container{
+    // display:flex;
+    height:calc(100vh - 80px);
+}
+
+.sidebar{
+    // width:200px;
+    // background:#a1a7ad;
+    background: #d2d3d3;
+    // background: #fff;
+    display:flex;
+    // flex-direction:column;
+    padding:10px 20px;
+    gap: 20px;
+}
+
+.sidebar button{
+    // margin-bottom:12px;
+    padding:8px;
+    border:none;
+    background:transparent;
+    // color:white;
+    color: black;
+    font-size: medium;
+    cursor:pointer;
+    // text-align:left;
+    border-radius:8px;
+}
+
+.sidebar button:hover{
+    background:#6a96bf;
+}
+
+.sidebar button.active{
+    background:#4caf50;
+}
+
+.content{
+    flex:1;
+    overflow:auto;
+    padding:20px;
+    background:#eceff1;
+}
+
+
+// For Chart
+
+.chart-container {
+  display: flex;
+  justify-content: center; /* Push to the right */
+//   width: 100%;
+  gap: 10px;
+}
+
+.chart-input{
+    width:600px;
+    height:400px;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.08);
+
+    .employee-search{
+        // input{
+        //     width: 100%;
+        //     padding: 10px;
+        //     border: 1px solid #ddd;
+        //     border-radius: 10px;
+        //     margin-bottom: 15px;
+        //     margin-top: 10px;
+        // }
+        .email-input {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .email-input input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .email-input span {
+            background: #f3f4f6;
+            padding: 12px 16px;
+            color: #555;
+            font-weight: 500;
+            border-left: 1px solid #d1d5db;
+            white-space: nowrap;
+        }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            background:#87a2dc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: .5s;
+
+            &:hover{
+                background:#2563eb;
+            }
+        }
+
+        .employee-card{
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background:#f8fafc;
+        }
+
+        .stats{
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stats strong{
+            display:block;
+            font-size:28px;
+        }
+
+        .present,
+        .absent{
+            flex:1;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .present{
+            background:#dcfce7;
+            color:#166534;
+        }
+        .absent{
+            background:#fee2e2;
+            color:#991b1b;
+        }
+
+        .totalAttendance{
+            text-align: center;
+            margin-top: 10px;
+            background: #22c55e;
+            border-radius: 10px;
+            padding: 5px;
+
+            p{
+              color: rgb(73, 88, 9);
+            }
+        }
+    }
+
+    .not-found{
+        color:red;
+        margin-top:15px;
+    }
+}
+
+
+.chart-card{
+
+    width:600px;
+    height:400px;
+    background:#fff;
+    // background: #d2d3d3;
+    border-radius:15px;
+    padding:20px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.08);
+
+}
+
+canvas{
+    width:100% !important;
+    height:100% !important;
+}
+
+
+// For Update dialog
+
+.attendance-form{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+
+.dialog_row_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.dialog_row{
+    display:flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dialog_row label{
+    font-weight:600;
+    color:#6b7280;
+    font-size: 0.85rem;
+}
+
+.dialog_value{
+    color:#4338ca;
+    font-weight:600;
+    word-break: break-word;
+}
+
+.dialog_field{
+    display:flex;
+    flex-direction:column;
+    gap:.35rem;
+}
+
+.dialog_field label{
+    font-weight:600;
+    color:#374151;
+}
+
+.dialog_divider{
+    height:1px;
+    background:#acaeb1;
+    margin:.25rem 0;
+}
+
+.remarks-input {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.attendance-dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
+}
+
+:host ::ng-deep .attendance-dialog .p-dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+:host ::ng-deep .attendance-dialog .p-dialog-footer .p-button {
+    width: auto;
+    min-width: 7.5rem;
+    height: 2.75rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.95rem;
+}

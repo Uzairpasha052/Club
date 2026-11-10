@@ -1,0 +1,111 @@
+
+.user_pdata{
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border: 1px solid rgb(171, 171, 171);
+    border-radius: 15px;
+    // margin-top: 20px;
+    // align-items: center;
+    // justify-content: center;
+
+    h2{
+        text-align: center;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+}
+
+.add-user-container{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+
+    .add-user-btn{
+        width: 80%;
+        font-size: 25px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        cursor: pointer;
+        border-radius: 12px;       
+        border: none;
+        background: transparent;
+        transition: .5s;
+        // padding: 5px 0;
+
+        &:hover{
+            color: whitesmoke;
+            background:linear-gradient(to right, #6a96bf, #2c3e4f, #6a96bf) ;
+        }
+
+        .register_logo{
+            // align-items: center;
+            height: 22px;
+            text-align: center;
+        }
+    }
+}
+
+.edit-user-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.field {
+    width: 100%;
+}
+
+.field-full {
+    grid-column: 1 / -1;
+}
+
+.reason-input {
+    width: 100%;
+    resize: vertical;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-family: inherit;
+}
+
+.action-btns{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    background: #f8fafc;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 10px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr {
+    height: 36px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr:hover {
+    background: #f8fafc;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-header,
+:host ::ng-deep .p-datatable .p-datatable-caption {
+    padding: 8px 12px;
+}
+
+:host ::ng-deep .action-btns .p-button {
+    width: 1.75rem;
+    height: 1.75rem;
+}

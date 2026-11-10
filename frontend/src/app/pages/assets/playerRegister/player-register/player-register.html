@@ -1,0 +1,255 @@
+
+
+
+<!-- Register User -->
+<div class="add-user-container">
+    <button (click)="openRegister()" class="add-user-btn">
+        <iconify-icon icon="mdi:account-plus-outline" class="register_logo"></iconify-icon>
+        Add Player
+    </button>
+    @if(showRegister)
+    {
+        <app-player-register-pop-up
+            (close)="closeRegister()">
+        </app-player-register-pop-up>
+    }
+</div> 
+
+<!-- display User -->
+<div class="user_pdata">
+    <h2>Players List</h2>
+    <p-confirmDialog></p-confirmDialog>
+    <p-table
+        #dt
+        [value]="users"
+        [paginator]="true"
+        [rows]="8"
+        [rowsPerPageOptions]="[5, 8, 20, 30]"
+        [globalFilterFields]="['stdName', 'stdAge', 'stdBelt', 'stdGender', 'stdStatus']"
+        [tableStyle]="{'min-width':'60rem'}">
+
+        <ng-template pTemplate="caption">
+            <p-iconfield>
+                <p-inputicon class="pi pi-search"></p-inputicon>
+
+                <input
+                    pInputText
+                    type="text"
+                    placeholder="Search..."
+                    (input)="dt.filterGlobal($any($event.target).value, 'contains')" />
+            </p-iconfield>
+        </ng-template>
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="stdName">
+                    Name
+                    <p-sortIcon field="stdName"></p-sortIcon>
+                </th>
+                <th>
+                 <!-- pSortableColumn="fName"> -->
+                    Father Name
+                    <!-- <p-sortIcon field="fName"></p-sortIcon> -->
+                </th>
+                <th pSortableColumn="stdBelt">
+                    Belt
+                    <p-sortIcon field="stdBelt"></p-sortIcon>
+                </th>
+                <th pSortableColumn="stdAge">
+                    Age
+                    <p-sortIcon field="stdAge"></p-sortIcon>
+                </th>
+                <th pSortableColumn="stdGender">
+                    Gender
+                    <p-sortIcon field="stdGender"></p-sortIcon>
+                </th>
+                <th> 
+                    <!--pSortableColumn="contact"> -->
+                    Contact
+                    <!-- <p-sortIcon field="contact"></p-sortIcon> -->
+                </th>
+                <th pSortableColumn="stdStatus">
+                    Status
+                    <p-sortIcon field="stdStatus"></p-sortIcon>
+                </th>
+                <th pSortableColumn="createdAt">
+                    Created
+                    <p-sortIcon field="createdAt"></p-sortIcon>
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{ user.stdName }}</td>
+                <td>{{ user.stdFName }}</td>
+                <td>{{ user.stdBelt }}</td>
+                <td>{{ user.stdAge }}</td>
+                <td>{{ user.stdGender }}</td>
+                <td>{{ user.stdContact }}</td>
+                <td>{{ user.stdStatus }}</td>
+
+                <td>{{ user.createdAt | date:'dd/MM/yyyy' }}</td>
+                <td>
+                    <div class="action-btns">
+                        <button pButton icon="pi pi-pencil" severity="info"
+                                (click)="editUser(user)" [rounded]="true" [text]="true"></button>
+                        <button pButton icon="pi pi-trash" severity="danger"
+                                (click)="confirmDelete(user)" [rounded]="true" [text]="true"></button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+
+    <p-dialog
+        header="Edit Player"
+        [(visible)]="displayEditDialog"
+        [modal]="true"
+        [resizable]="false"
+        [style]="{ width: '40rem'}"
+        [contentStyle]="{ overflow: 'auto', maxHeight: '70vh' }">
+
+        <div class="edit-user-form">
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdName"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdName" />
+                    <label for="stdName">Full Name</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdFName"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdFName" />
+                    <label for="stdFName">Father Name</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdAge"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdAge" />
+                    <label for="stdAge">Age</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdGender"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdGender" />
+                    <label for="stdGender">Gender</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdContact"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdContact" />
+                    <label for="stdContact">Contact</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdBelt"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdBelt" />
+                    <label for="stdBelt">Belt</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdHistory"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdHistory" />
+                    <label for="stdHistory">History</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <input
+                        pInputText
+                        id="stdFee"
+                        class="w-full"
+                        [(ngModel)]="selectedUser.stdFee" />
+                    <label for="stdFee">Fee</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field field-full">
+                <p-floatlabel variant="on">
+                    <textarea
+                        id="stdReason"
+                        class="w-full reason-input"
+                        rows="3"
+                        [(ngModel)]="selectedUser.stdReason"></textarea>
+                    <label for="stdReason">Reason</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="field">
+                <p-floatlabel variant="on">
+                    <p-select
+                        class="w-full"
+                        inputId="stdStatus"
+                        [options]="statuses"
+                        optionLabel="label"
+                        optionValue="value"
+                        [(ngModel)]="selectedUser.stdStatus"
+                        [appendTo]="'body'">
+                    </p-select>
+                    <label for="stdStatus">Status</label>
+                </p-floatlabel>
+            </div>
+
+        </div>
+
+        <ng-template pTemplate="footer">
+
+            <button
+                pButton
+                label="Cancel"
+                severity="secondary"
+                (click)="displayEditDialog=false">
+            </button>
+
+            <button
+                pButton
+                label="Save"
+                icon="pi pi-check"
+                (click)="saveUser()">
+            </button>
+
+        </ng-template>
+
+    </p-dialog>
+</div>
+
